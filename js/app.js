@@ -22,3 +22,15 @@ var	coinMath = Math.floor();
 		coinValue = "Tails";
 }
 
+
+
+// ANGULAR APP
+var tttApp = angular.module('tttApp',[]);
+
+tttApp.controller('TTTController' ['$scope', function($scope) {
+// functions for the controller go in here
+
+
+
+
+	}]);

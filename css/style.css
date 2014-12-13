@@ -1,8 +1,18 @@
+body {
+	background-color: black;
+	color: lime;
+}
+
+h1 {
+	text-align: center;
+}
 .game-board {
 	width: 600px;
 	height: 600px;
-	border: 2px solid black;
+	border: 2px solid lime;
+	margin: 0 auto;
 }
+
 td {
 	width: 200px;
 	height: 200px;
@@ -10,4 +20,29 @@ td {
 }
 td:hover {
 	border: 2px solid red;
+	cursor: crosshair;
+}
+
+.leftScore {
+	height:	600px;
+	width: 200px;
+	float: left;
+	background-color: lime;
+}
+
+.leftScore p {
+	text-align: center;
+	color: black;
+}
+
+.rightScore {
+	height: 600px;
+	width: 200px;
+	float: right;
+	background-color: lime;
+}
+
+.rightScore p {
+	text-align: center;
+	color: black;
 }

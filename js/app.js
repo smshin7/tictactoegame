@@ -8,27 +8,37 @@
 // var boxEight = document.getElementById("box8");
 // var boxNine = document.getElementById("box9");
 
-// this functions will run when button is clicked
+// this function will run when button is clicked
 function flipCoin() {
-
-var coinValue;
-var	coinMath = Math.floor();
-	if (coinMath >= 0.50)
+	var	coinMath = Math.random();
+	if (coinMath > 0.50) {
 		//set coinValue to heads
-		coinValue = "Heads";
-		return coinValue;
+		document.getElementById("coin").innerHTML = "HEADS";
+		return "heads";
+		
 	} else {
 		//set coinValue to tails
-		coinValue = "Tails";
-}
+		document.getElementById("coin").innerHTML = "TAILS";
+		return "tails";
+	}
+};
 
+
+// this function will push value into array X or O
+function selectSquare () {
+
+
+
+
+}
 
 
 // ANGULAR APP
 var tttApp = angular.module('tttApp',[]);
 
-tttApp.controller('TTTController' ['$scope', function($scope) {
 // functions for the controller go in here
+tttApp.controller('TTTController' ['$scope', function($scope) {
+
 
 
 

@@ -9,18 +9,24 @@ h1 {
 	font-size: 50px;
 }
 
-.cells {
+#game-board {
+		text-align: center;
+}
+.squares {
 	width: 200px;
 	height: 200px;
 	background-color: #7689A9;
 	text-align: center;
 	display: inline-block;
-	margin: 0 auto;
 	border: 2px solid #2D4671;
 }
-.cells:hover {
+.squares:hover {
 	background-color: #4D658D;
 	cursor: crosshair;
+}
+#mark {
+	font-size: 50px;
+
 }
 
 .leftScore {

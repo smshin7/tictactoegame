@@ -20,31 +20,34 @@
 		<h1>Tic-Tac-Toe</h1>
 
 <!-- Scoreboards -->
-	<!-- 		<div class="rightScore">
-				<h3>Player 2</h3> -->
+			<div class="rightScore">
+				<h3>Player 2</h3>
 
 <!-- 	Displays player 1 wins -->
-<!-- 				<p></p>
+				<p></p>
 			</div>
 
 			<div class="leftScore">
-				<h3>Player 1</h3> -->
+				<h3>Player 1</h3>
 
 <!-- Display player 2 wins -->
-<!-- 				<p></p>
-			</div> -->
+				<p></p>
+			</div>
 
 
 		<!-- This is the Tic Tac Toe game board -->
-				<div x-ng-repeat="row in grid">
-					<div class="cells" x-ng-repeat="cell in row" x-ng-click="selectSquare()">{{cell.pick}}-{{$parent.$index}}-{{$index}}
-					</div>
-				</div>
+		<div id="game-board">
+			<div x-ng-repeat="row in grid">
+				<div class="squares" x-ng-repeat="cell in row" x-ng-click="selectSquare()">{{$parent.$index}}-{{$index}}
+				<span id="mark">{{cell.pick}}</span> 
+				</div>	
+			</div>
+		</div>
 
 			<br>
 			<br>
 
-			<button id="reset-button" x-ng-click="resetGame">New Game</button>
+			<button id="reset-button" x-ng-click="resetGame()">New Game</button>
 
 	</body>
 </html>

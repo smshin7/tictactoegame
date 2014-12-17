@@ -1,48 +1,66 @@
 body {
-	background-color: black;
-	color: lime;
+	background-color: #2D4671;
+	color: #152C55;
+	font-family: 'Montserrat', sans-serif;;
 }
 
 h1 {
 	text-align: center;
-}
-.game-board {
-	width: 600px;
-	height: 600px;
-	border: 2px solid lime;
-	margin: 0 auto;
+	font-size: 50px;
 }
 
-td {
+.cells {
 	width: 200px;
 	height: 200px;
-	border: 2px dashed lime;
+	background-color: #7689A9;
+	text-align: center;
+	display: inline-block;
+	margin: 0 auto;
+	border: 2px solid #2D4671;
 }
 td:hover {
-	border: 2px solid red;
+	background-color: #4D658D;
 	cursor: crosshair;
 }
 
 .leftScore {
-	height:	600px;
+	height:	300px;
 	width: 200px;
 	float: left;
-	background-color: lime;
+	background-color: #4D658D;
+	border-radius: 10px;
+	margin-left: 20px;
 }
 
-.leftScore p {
+.leftScore h3 {
 	text-align: center;
-	color: black;
+	color: #152C55;
 }
 
 .rightScore {
-	height: 600px;
+	height: 300px;
 	width: 200px;
 	float: right;
-	background-color: lime;
+	background-color: #4D658D;
+	border-radius: 10px;
+	margin-right: 20px;
 }
 
-.rightScore p {
+.rightScore h3 {
 	text-align: center;
-	color: black;
+	color: #152C55;
+}
+
+#reset-button {
+	width: 100px;
+	height: 50px;
+	background-color: #4D658D;
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	border-color: #152C55;
+	border-radius: 10px;
+	margin: 0 auto;
+	display: block;
 }

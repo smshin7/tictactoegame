@@ -1,66 +1,51 @@
 <!DOCTYPE html>
-<html ng-app="tttApp">
+<html ng-app="gameApp">
 
 	<head>
 		<title>Tic-Tac-Toe Game</title>
+		<!-- CSS Stylesheet -->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<!-- Google Fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+		<!-- AngularJS -->
 		<script src="js/angular.min.js"></script>
-		<script src="js/app.js"></script>
+
+		<!-- JavaScript file -->
+		<script src="js/main.js"></script>
 	</head>
 
-	<body>
+	<body ng-controller="GameController">
 
-		<h1>Welcome to Tic-Tac-Toe!</h1>
+		<h1>Tic-Tac-Toe</h1>
 
-	<!-- This is the coin toss -->
-			<!-- <p>Let's start by picking who goes first with a coin toss</p>
+<!-- Scoreboards -->
+	<!-- 		<div class="rightScore">
+				<h3>Player 2</h3> -->
 
-			<h2>Coin Toss</h2>
-			<p id="coin"></p>
-			<div class="cointoss">
-				<button ng-click="flipCoin">Flip Coin!</button>
-			</div> -->
-
-
-			<div class="rightScore">
-				<p>Player 1</p>
-
-<!-- 				Displays player 1 wins -->
-				<p></p>
+<!-- 	Displays player 1 wins -->
+<!-- 				<p></p>
 			</div>
 
 			<div class="leftScore">
-				<p>Player 2</p>
+				<h3>Player 1</h3> -->
 
 <!-- Display player 2 wins -->
-				<p></p>
-			</div>
+<!-- 				<p></p>
+			</div> -->
 
 
 		<!-- This is the Tic Tac Toe game board -->
-			<table class="game-board" ng-controller="TTTController">
+				<div x-ng-repeat="row in grid">
+					<div class="cells" x-ng-repeat="cell in row" x-ng-click="selectSquare()">{{cell.pick}}-{{$parent.$index}}-{{$index}}
+					</div>
+				</div>
 
 
+			<br>
+			<br>
 
-				<tr class="row1"> 	
-					<td id="box1" ng-click="selectSquareOne()"></td>
-					<td id="box2" ng-click="selectSquareTwo()"></td>
-					<td id="box3" ng-click="selectSquareThree()"></td>
-				</tr>
-
-				<tr class="row2">
-					<td id="box4" ng-click="selectSquareFour()"></td>
-					<td id="box5" ng-click="selectSquareFive()"></td>
-					<td id="box6" ng-click="selectSquareSix()"></td>
-				</tr>
-
-				<tr class="row3">
-					<td id="box7" ng-click="selectSquareSeven()"></td>
-					<td id="box8" ng-click="selectSquareEight()"></td>
-					<td id="box9" ng-click="selectSquareNine()"></td>		
-				</tr>
-
-			</table>
+			<button id="reset-button">New Game</button>
 
 	</body>
 </html>

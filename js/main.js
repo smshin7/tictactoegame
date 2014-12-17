@@ -35,18 +35,24 @@ gameApp.controller('GameController', ['$scope', function($scope) {
 
 // ng-click selects the square
 	$scope.selectSquare = function() {
-		console.log($scope.currentPlayer);
-		console.log($scope.grid);
+		// console.log($scope.currentPlayer);
+	
 
-		if ($scope.currentPlayer == 'x') {
+		if ($scope.currentPlayer == 'x' && this.cell.pick == '') {
+			
 			this.cell.pick = $scope.playerOne;
 			$scope.currentPlayer = $scope.playerTwo;
-		} else {
+
+			} else if ($scope.currentPlayer == 'o' && this.cell.pick == ''){
 			this.cell.pick = $scope.playerTwo;
-			$scope.currentPlayer = $scope.playerOne ;
+			$scope.currentPlayer = $scope.playerOne;
+
 			};
+
+		evaluateWin();	
 		return $scope.currentPlayer;
-	};				
+	};		
+	// console.log($scope.grid[0][0]);		
 
 // this function determines whos the currentplayer
  // $scope.currentPlayer = function() {
@@ -56,9 +62,29 @@ gameApp.controller('GameController', ['$scope', function($scope) {
 
 
 // this function declares winner
-	// $scope.evaluateWin = function(){
-	// 	if (catsGame == false && grid [][] )
+	var evaluateWin = function(){
+		if ($scope.grid[0][0].pick == "x" && $scope.grid[0][1].pick  == "x" && $scope.grid[0][2].pick  == "x")
+		{
+			alert("x wins");
+		}
 
-	// };
+	};
 	
+
+// reset game on click button reset game
+
+// var resetGame = function () {
+
+// 	$scope.currentPlayer = 'x';
+// 	$scope.playerOne = 'x';
+// 	$scope.playerTwo = 'o';
+// 	$scope.catsGame = false;
+
+// 	$scope.grid = [
+// 									[{pick: ''}, {pick: ''}, {pick: ''}],
+// 									[{pick: ''}, {pick: ''}, {pick: ''}],
+// 									[{pick: ''}, {pick: ''}, {pick: ''}]
+// 								];
+// }
+
 	}]);

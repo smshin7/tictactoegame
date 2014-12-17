@@ -18,7 +18,7 @@ h1 {
 	margin: 0 auto;
 	border: 2px solid #2D4671;
 }
-td:hover {
+.cells:hover {
 	background-color: #4D658D;
 	cursor: crosshair;
 }

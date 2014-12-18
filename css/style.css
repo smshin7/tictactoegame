@@ -11,6 +11,8 @@ h1 {
 
 #game-board {
 		text-align: center;
+	/*	width: 700px;
+		height: 700px;*/
 }
 .squares {
 	width: 200px;

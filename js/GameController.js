@@ -49,6 +49,7 @@ function GameController() {
 		evaluateWin();	
 		return vm.currentMark;
 		//test
+		vm.moves += 1
 		console.log(vm.grid[row][col]);
 	}		
 	
@@ -64,38 +65,38 @@ function GameController() {
 	function evaluateWin() {
 		if (vm.grid[0][0].pick == 'x' && vm.grid[0][1].pick  == 'x' && vm.grid[0][2].pick  == 'x')
 		{
-				alert("X wins");
+				playerOneWin();
 		} else if (vm.grid[1][0].pick == "x" && vm.grid[1][1].pick  == "x" && vm.grid[1][2].pick  == "x") {
-				alert("X wins");
+				playerOneWin();
 		} else if (vm.grid[2][0].pick == "x" && vm.grid[2][1].pick  == "x" && vm.grid[2][2].pick  == "x") {
-				alert("X wins");
+				playerOneWin();
 		} else if (vm.grid[0][0].pick == "x" && vm.grid[1][0].pick  == "x" && vm.grid[2][0].pick  == "x") {
-				alert("X wins");
+				playerOneWin();
 		} else if (vm.grid[0][1].pick == "x" && vm.grid[1][1].pick  == "x" && vm.grid[2][1].pick  == "x") {
-				alert("X wins");
+				playerOneWin();
 		} else if (vm.grid[0][2].pick == "x" && vm.grid[1][2].pick  == "x" && vm.grid[2][2].pick  == "x") {
-				alert("X wins");
+				playerOneWin();
 		} else if (vm.grid[0][0].pick == "x" && vm.grid[1][1].pick  == "x" && vm.grid[2][2].pick  == "x") {
-				alert("X wins");
+				playerOneWin();
 		} else if (vm.grid[0][2].pick == "x" && vm.grid[1][1].pick  == "x" && vm.grid[2][0].pick  == "x") {
-				alert("X wins");
+				playerOneWin();
 
 		} else if (vm.grid[0][0].pick == "o" && vm.grid[0][1].pick  == "o" && vm.grid[0][2].pick  == "o") {
-				alert("O wins");
+				playerTwoWin();
 		} else if (vm.grid[1][0].pick == "o" && vm.grid[1][1].pick  == "o" && vm.grid[1][2].pick  == "o") {
-				alert("O wins");
+				playerTwoWin();
 		} else if (vm.grid[2][0].pick == "o" && vm.grid[2][1].pick  == "o" && vm.grid[2][2].pick  == "o") {
-				alert("O wins");
+				playerTwoWin();
 		} else if (vm.grid[0][0].pick == "o" && vm.grid[1][0].pick  == "o" && vm.grid[2][0].pick  == "o") {
-				alert("O wins");
+				playerTwoWin();
 		} else if (vm.grid[0][1].pick == "o" && vm.grid[1][1].pick  == "o" && vm.grid[2][1].pick  == "o") {
-				alert("O wins");
+				playerTwoWin();
 		} else if (vm.grid[0][2].pick == "o" && vm.grid[1][2].pick  == "o" && vm.grid[2][2].pick  == "o") {
-				alert("O wins");
+				playerTwoWin();
 		} else if (vm.grid[0][0].pick == "o" && vm.grid[1][1].pick  == "o" && vm.grid[2][2].pick  == "o") {
-				alert("O wins");
+				playerTwoWin();
 		} else if (vm.grid[0][2].pick == "o" && vm.grid[1][1].pick  == "o" && vm.grid[2][0].pick  == "o") {
-				alert("O wins");
+				playerTwoWin();
 		} else if (moves == 9){
 				alert("Cats Game!");
 				vm.catsGame = true;
@@ -106,15 +107,17 @@ function GameController() {
 	
 
 // these two functions add a score when player wins
-	// var xWin = function() {
+	var playerOneWin = function() {
+			console.log("Player One Wins!")
+	// 	vm.leftScore += 1;
+			resetGame();
+	};
 
-	// 	$scope.leftScore += 1;
-	// };
-
-	// var oWin = function() {
-
-	// 	$scope.rightScore += 1;
-	// };
+	var playerTwoWin = function() {
+			console.log("Player Two Wins!")
+	// 	vm.rightScore += 1;
+			resetGame();
+	};
 
 
 
@@ -122,14 +125,14 @@ function GameController() {
 
 
 	// reset game on click button reset game
-	var resetGame = function () {
+	function resetGame () {
 
-		this.currentPlayer = 'x';
-		this.playerOne = 'x';
-		this.playerTwo = 'o';
-		this.catsGame = false;
-		this.moves = 1;
-		this.grid = [
+		vm.currentPlayer = 'x';
+		vm.playerOne = 'x';
+		vm.playerTwo = 'o';
+		vm.catsGame = false;
+		vm.moves = 1;
+		vm.grid = [
 										[{pick: ''}, {pick: ''}, {pick: ''}],
 										[{pick: ''}, {pick: ''}, {pick: ''}],
 										[{pick: ''}, {pick: ''}, {pick: ''}]

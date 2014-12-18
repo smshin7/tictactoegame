@@ -1,5 +1,5 @@
 // ANGULAR APP
-var gameApp = angular
+angular
 	.module('gameApp',[]);
 
 // // this function will run when button is clicked

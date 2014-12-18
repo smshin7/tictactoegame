@@ -19,15 +19,18 @@ h1 {
 	text-align: center;
 	display: inline-block;
 	border: 2px solid #2D4671;
+	border-radius: 10px;	
 }
 .squares:hover {
 	background-color: #4D658D;
 	cursor: crosshair;
 }
-#mark {
-	font-size: 50px;
-	text-align: center;
-	vertical-align: middle;
+
+.x {
+	background-color: #FFFFFF;
+}
+.o {
+	background-color: #152C55;
 }
 
 .leftScore {

@@ -1,41 +1,52 @@
 // functions for the controller go in here
-gameApp
-	.controller('GameController', ['$scope', function($scope) {
+angular
+	.module('gameApp')
+	.controller('GameController', GameController);
 
-	$scope.currentPlayer = 'x';
-	$scope.playerOne = 'x';
-	$scope.playerTwo = 'o';
-	$scope.moves = 1;
-	$scope.catsGame = false;
-	$scope.gameover = false;
-	$scope.leftScore = 0;
-	$scope.rightScore = 0;
+
+function GameController() {
+
+	// this brings the function out to be used in the HTML
+	this.selectSquare = selectSquare;
+	// this.evaluateWin = evaluateWin;
+	this.xWin = xWin;
+	this.oWin = oWin;
+
+
+
+	this.currentMark = 'x';
+	this.playerOne = 'x';
+	this.playerTwo = 'o';
+	this.moves = 1;
+	this.catsGame = false;
+	this.gameover = false;
+	this.leftScore = 0;
+	this.rightScore = 0;
+
+// these cells are used to mark the index
+	// this.cell = ['','','','','','','','','']
 
 // this is the grid to set up the gameboard
-	$scope.grid = [
-									[{pick: ''}, {pick: ''}, {pick: ''}],
-									[{pick: ''}, {pick: ''}, {pick: ''}],
-									[{pick: ''}, {pick: ''}, {pick: ''}]
+	this.grid = [
+									[{pick: ''},{pick: ''},{pick: ''}],
+									[{pick: ''},{pick: ''},{pick: ''}],
+									[{pick: ''},{pick: ''},{pick: ''}]
 								];
 
 // ng-click selects the square
-	$scope.selectSquare = function() {
-		// console.log($scope.currentPlayer);
-	
-		if ($scope.currentPlayer == 'x' && this.cell.pick == '') {
-			
-			this.cell.pick = $scope.playerOne;
-			$scope.currentPlayer = $scope.playerTwo;
+	function selectSquare(row, col) {
 
-			} else if ($scope.currentPlayer == 'o' && this.cell.pick == ''){
-			this.cell.pick = $scope.playerTwo;
-			$scope.currentPlayer = $scope.playerOne;
+		if (this.currentMark == 'x' && this.grid[row][col].pick == '') {
+			this.grid[row][col].pick = 'x';
+			this.currentMark = this.playerTwo;
 
-			};
-
-		evaluateWin();	
-		return $scope.currentPlayer;
-	};		
+			} else if (this.currentMark == 'o' && this.grid[row][col].pick == '') {
+					this.grid[row][col].pick = 'o';
+					this.currentMark = this.playerOne;
+			}
+		// evaluateWin();	
+		return this.currentMark;
+	}		
 	// console.log($scope.grid[0][0]);		
 
 // this function determines whos the currentplayer
@@ -46,84 +57,84 @@ gameApp
 
 
 // this function declares winner
-	var evaluateWin = function(){
-		if ($scope.grid[0][0].pick == "x" && $scope.grid[0][1].pick  == "x" && $scope.grid[0][2].pick  == "x")
-		{
-				alert("X wins");
-		} else if ($scope.grid[1][0].pick == "x" && $scope.grid[1][1].pick  == "x" && $scope.grid[1][2].pick  == "x") {
-				alert("X wins");
-		} else if ($scope.grid[2][0].pick == "x" && $scope.grid[2][1].pick  == "x" && $scope.grid[2][2].pick  == "x") {
-				alert("X wins");
-		} else if ($scope.grid[0][0].pick == "x" && $scope.grid[1][0].pick  == "x" && $scope.grid[2][0].pick  == "x") {
-				alert("X wins");
-		} else if ($scope.grid[0][1].pick == "x" && $scope.grid[1][1].pick  == "x" && $scope.grid[2][1].pick  == "x") {
-				alert("X wins");
-		} else if ($scope.grid[0][2].pick == "x" && $scope.grid[1][2].pick  == "x" && $scope.grid[2][2].pick  == "x") {
-				alert("X wins");
-		} else if ($scope.grid[0][0].pick == "x" && $scope.grid[1][1].pick  == "x" && $scope.grid[2][2].pick  == "x") {
-				alert("X wins");
-		} else if ($scope.grid[0][2].pick == "x" && $scope.grid[1][1].pick  == "x" && $scope.grid[2][0].pick  == "x") {
-				alert("X wins");
+	// var evaluateWin = function(){
 
-		} else if ($scope.grid[0][0].pick == "o" && $scope.grid[0][1].pick  == "o" && $scope.grid[0][2].pick  == "o") {
-				alert("O wins");
-		} else if ($scope.grid[1][0].pick == "o" && $scope.grid[1][1].pick  == "o" && $scope.grid[1][2].pick  == "o") {
-				alert("O wins");
-		} else if ($scope.grid[2][0].pick == "o" && $scope.grid[2][1].pick  == "o" && $scope.grid[2][2].pick  == "o") {
-				alert("O wins");
-		} else if ($scope.grid[0][0].pick == "o" && $scope.grid[1][0].pick  == "o" && $scope.grid[2][0].pick  == "o") {
-				alert("O wins");
-		} else if ($scope.grid[0][1].pick == "o" && $scope.grid[1][1].pick  == "o" && $scope.grid[2][1].pick  == "o") {
-				alert("O wins");
-		} else if ($scope.grid[0][2].pick == "o" && $scope.grid[1][2].pick  == "o" && $scope.grid[2][2].pick  == "o") {
-				alert("O wins");
-		} else if ($scope.grid[0][0].pick == "o" && $scope.grid[1][1].pick  == "o" && $scope.grid[2][2].pick  == "o") {
-				alert("O wins");
-		} else if ($scope.grid[0][2].pick == "o" && $scope.grid[1][1].pick  == "o" && $scope.grid[2][0].pick  == "o") {
-				alert("O wins");
-		} else if (moves == 9){
+	// 	if (this.grid[0][0].pick == "x" && this.grid[0][1].pick  == "x" && this.grid[0][2].pick  == "x")
+	// 	{
+	// 			alert("X wins");
+	// 	} else if (this.grid[1][0].pick == "x" && this.grid[1][1].pick  == "x" && this.grid[1][2].pick  == "x") {
+	// 			alert("X wins");
+	// 	} else if (this.grid[2][0].pick == "x" && this.grid[2][1].pick  == "x" && this.grid[2][2].pick  == "x") {
+	// 			alert("X wins");
+	// 	} else if (this.grid[0][0].pick == "x" && this.grid[1][0].pick  == "x" && this.grid[2][0].pick  == "x") {
+	// 			alert("X wins");
+	// 	} else if (this.grid[0][1].pick == "x" && this.grid[1][1].pick  == "x" && this.grid[2][1].pick  == "x") {
+	// 			alert("X wins");
+	// 	} else if (this.grid[0][2].pick == "x" && this.grid[1][2].pick  == "x" && this.grid[2][2].pick  == "x") {
+	// 			alert("X wins");
+	// 	} else if (this.grid[0][0].pick == "x" && this.grid[1][1].pick  == "x" && this.grid[2][2].pick  == "x") {
+	// 			alert("X wins");
+	// 	} else if (this.grid[0][2].pick == "x" && this.grid[1][1].pick  == "x" && this.grid[2][0].pick  == "x") {
+	// 			alert("X wins");
 
-				alert("Cats Game!");
-				$scope.catsGame = true;
+	// 	} else if (this.grid[0][0].pick == "o" && this.grid[0][1].pick  == "o" && this.grid[0][2].pick  == "o") {
+	// 			alert("O wins");
+	// 	} else if (this.grid[1][0].pick == "o" && this.grid[1][1].pick  == "o" && this.grid[1][2].pick  == "o") {
+	// 			alert("O wins");
+	// 	} else if (this.grid[2][0].pick == "o" && this.grid[2][1].pick  == "o" && this.grid[2][2].pick  == "o") {
+	// 			alert("O wins");
+	// 	} else if (this.grid[0][0].pick == "o" && this.grid[1][0].pick  == "o" && this.grid[2][0].pick  == "o") {
+	// 			alert("O wins");
+	// 	} else if (this.grid[0][1].pick == "o" && this.grid[1][1].pick  == "o" && this.grid[2][1].pick  == "o") {
+	// 			alert("O wins");
+	// 	} else if (this.grid[0][2].pick == "o" && this.grid[1][2].pick  == "o" && this.grid[2][2].pick  == "o") {
+	// 			alert("O wins");
+	// 	} else if (this.grid[0][0].pick == "o" && this.grid[1][1].pick  == "o" && this.grid[2][2].pick  == "o") {
+	// 			alert("O wins");
+	// 	} else if (this.grid[0][2].pick == "o" && this.grid[1][1].pick  == "o" && this.grid[2][0].pick  == "o") {
+	// 			alert("O wins");
+	// 	} else if (moves == 9){
+
+	// 			alert("Cats Game!");
+	// 			this.catsGame = true;
 			
-		} else {
-				$scope.moves += 1; 
-		}
-	};
+	// 	} else {
+	// 			this.moves += 1; 
+	// 	}
+	// };
 	
 
 // these two functions add a score when player wins
-var xWin = function() {
+	var xWin = function() {
 
-	$scope.leftScore += 1;
+		$scope.leftScore += 1;
+	};
+
+	var oWin = function() {
+
+		$scope.rightScore += 1;
+	};
+
+
+
+
+
+
+	// reset game on click button reset game
+	var resetGame = function () {
+
+		$scope.currentPlayer = 'x';
+		$scope.playerOne = 'x';
+		$scope.playerTwo = 'o';
+		$scope.catsGame = false;
+		$scope.moves = 1;
+
+		$scope.grid = [
+										[{pick: ''}, {pick: ''}, {pick: ''}],
+										[{pick: ''}, {pick: ''}, {pick: ''}],
+										[{pick: ''}, {pick: ''}, {pick: ''}]
+									];
+
+	};
+
 };
-
-var oWin = function() {
-
-	$scope.rightScore += 1;
-};
-
-
-
-
-
-
-// reset game on click button reset game
-
-var resetGame = function () {
-
-	$scope.currentPlayer = 'x';
-	$scope.playerOne = 'x';
-	$scope.playerTwo = 'o';
-	$scope.catsGame = false;
-	$scope.moves = 1;
-
-	$scope.grid = [
-									[{pick: ''}, {pick: ''}, {pick: ''}],
-									[{pick: ''}, {pick: ''}, {pick: ''}],
-									[{pick: ''}, {pick: ''}, {pick: ''}]
-								];
-
-};
-
-	}]);

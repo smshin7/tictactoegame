@@ -31,7 +31,7 @@
 	<!-- Scoreboards -->
 	<div class="leftScore">
 		<h3>Player 1</h3>
-			<p>Score: {{}}</p>
+			<p>Score: {{2+2}}</p>
 	</div>
 
 	<div class="rightScore">
@@ -43,9 +43,10 @@
 
 		<!-- This is the Tic Tac Toe game board -->
 		<div id="game-board">
-			<div x-ng-repeat="row in grid">
-				<div class="squares" x-ng-repeat="cell in row" x-ng-click="selectSquare()">{{$parent.$index}}-{{$index}}
-				<span id="mark">{{cell.pick}}</span> 
+			<div x-ng-repeat="row in game.grid">
+				<div class="squares" x-ng-repeat="cell in row" x-ng-class="game.currentMark" x-ng-click="game.selectSquare($parent.$index, $index)">hello
+				<!-- {{ $parent.$index }}-{{ $index }} -->
+					{{ game.grid[$parent.$index][$index].pick }}
 				</div>	
 			</div>
 		</div>
@@ -53,6 +54,7 @@
 			<br>
 			<br>
 
+			<!-- 	reset game button -->
 			<button id="reset-button" x-ng-click="resetGame()">New Game</button>
 
 	</body>

@@ -3,6 +3,7 @@
 
 	<head>
 		<title>Tic-Tac-Toe Game</title>
+
 		<!-- CSS Stylesheet -->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<!-- Google Fonts -->
@@ -10,6 +11,12 @@
 
 		<!-- AngularJS -->
 		<script src="js/angular.min.js"></script>
+
+		<!-- FireBase -->
+		<script src="https://cdn.firebase.com/js/client/2.0.6/firebase.js"></script>
+
+		<!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
 
 		<!-- JavaScript file -->
 		<script src="js/main.js"></script>
@@ -19,20 +26,17 @@
 
 		<h1>Tic-Tac-Toe</h1>
 
-<!-- Scoreboards -->
-			<div class="rightScore">
-				<h3>Player 2</h3>
+	<!-- Scoreboards -->
+	<div class="leftScore">
+		<h3>Player 1</h3>
+			<p>Score: {{}}</p>
+	</div>
 
-<!-- 	Displays player 1 wins -->
-				<p></p>
-			</div>
-
-			<div class="leftScore">
-				<h3>Player 1</h3>
-
-<!-- Display player 2 wins -->
-				<p></p>
-			</div>
+	<div class="rightScore">
+		<h3>Player 2</h3>
+			<p>Score: {{}}</p>
+	</div>
+		
 
 
 		<!-- This is the Tic Tac Toe game board -->

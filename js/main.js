@@ -114,12 +114,12 @@ gameApp.controller('GameController', ['$scope', function($scope) {
 var xWin = function() {
 
 	$scope.leftScore += 1;
-}
+};
 
 var oWin = function() {
 
 	$scope.rightScore += 1;
-}
+};
 
 
 

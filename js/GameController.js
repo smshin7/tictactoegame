@@ -11,11 +11,9 @@ function GameController() {
 
 	// this brings the select function out to be used in the DOM
 	this.selectSquare = selectSquare;
-	// this.xWin = xWin;
-	// this.oWin = oWin;
+	this.resetGame = resetGame;
 
-
-
+// Game variables
 	vm.currentMark = 'x';
 	vm.playerOne = 'x';
 	vm.playerTwo = 'o';
@@ -24,6 +22,7 @@ function GameController() {
 	vm.gameover = false;
 	vm.leftScore = 0;
 	vm.rightScore = 0;
+	vm.gameResult = '';
 
 // these cells are used to mark the index
 	// this.cell = ['','','','','','','','','']
@@ -53,14 +52,6 @@ function GameController() {
 		console.log(vm.grid[row][col]);
 	}		
 	
-
-// this function determines whos the currentplayer
- // $scope.currentPlayer = function() {\
- // 	if(playerOne )
-
- // };
-
-
 // this function declares winner
 	function evaluateWin() {
 		if (vm.grid[0][0].pick == 'x' && vm.grid[0][1].pick  == 'x' && vm.grid[0][2].pick  == 'x')
@@ -97,8 +88,8 @@ function GameController() {
 				playerTwoWin();
 		} else if (vm.grid[0][2].pick == "o" && vm.grid[1][1].pick  == "o" && vm.grid[2][0].pick  == "o") {
 				playerTwoWin();
-		} else if (moves == 9){
-				alert("Cats Game!");
+		} else if (vm.moves == 9){
+				vm.gameResult = "Cats Game!";
 				vm.catsGame = true;
 		} else {
 				vm.moves += 1; 
@@ -107,31 +98,26 @@ function GameController() {
 	
 
 // these two functions add a score when player wins
-	var playerOneWin = function() {
-			console.log("Player One Wins!")
-	// 	vm.leftScore += 1;
-			resetGame();
+	function playerOneWin() {
+			vm.gameResult = "Player One Wins!";
+			vm.leftScore += 1;
 	};
 
-	var playerTwoWin = function() {
-			console.log("Player Two Wins!")
-	// 	vm.rightScore += 1;
-			resetGame();
+ function playerTwoWin() {
+			vm.gameResult = "Player Two Wins!";
+			vm.rightScore += 1;
 	};
-
-
-
-
-
 
 	// reset game on click button reset game
-	function resetGame () {
-
+	function resetGame() {
+		console.log("hello world");
 		vm.currentPlayer = 'x';
 		vm.playerOne = 'x';
 		vm.playerTwo = 'o';
 		vm.catsGame = false;
 		vm.moves = 1;
+		vm.gameResult = '';
+
 		vm.grid = [
 										[{pick: ''}, {pick: ''}, {pick: ''}],
 										[{pick: ''}, {pick: ''}, {pick: ''}],
@@ -139,5 +125,5 @@ function GameController() {
 									];
 
 	};
-
 };
+

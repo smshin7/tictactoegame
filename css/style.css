@@ -10,63 +10,78 @@ h1 {
 }
 
 #game-board {
-		text-align: center;
+	text-align: center;
+	margin: 0 auto;	
+	width: 456px;
+	height: 456px;
 }
 .squares {
-	width: 200px;
-	height: 200px;
-	background-color: #7689A9;
-	text-align: center;
+	width: 150px;
+	height: 150px;
 	display: inline-block;
-	border: 2px solid #2D4671;
+	background-color: #7689A9;
+	border: 1px solid #2D4671;
+	border-radius: 10px;
+	margin: 0;
 }
 .squares:hover {
 	background-color: #4D658D;
 	cursor: crosshair;
 }
-#mark {
-	font-size: 50px;
 
+.doge-img {
+	background-image: url(../images/doge.png);
+	background-size: cover;
+}
+.cat-img {
+	background-image: url(../images/cat.png);
+	background-size: cover;
 }
 
-.leftScore {
+.left-score {
+	position: absolute;
 	height:	300px;
 	width: 200px;
-	float: left;
 	background-color: #4D658D;
 	border-radius: 10px;
 	margin-left: 20px;
 }
 
-.leftScore h3 {
+.left-score h3, .left-score p {
 	text-align: center;
 	color: #152C55;
 }
 
-.rightScore {
+.right-score {
+	position: absolute;
+	right: 0;
 	height: 300px;
 	width: 200px;
-	float: right;
 	background-color: #4D658D;
 	border-radius: 10px;
 	margin-right: 20px;
 }
 
-.rightScore h3 {
+.right-score h3, .right-score p {
 	text-align: center;
 	color: #152C55;
 }
 
-#reset-button {
+#game-result {
+	text-align: center;
+	color: white;
+	font-size: 20px;
+}
+
+button {
 	width: 100px;
 	height: 50px;
 	background-color: #4D658D;
 	color: white;
-	font-family: 'Montserrat', sans-serif;
 	font-size: 12px;
 	font-weight: bold;
 	border-color: #152C55;
 	border-radius: 10px;
-	margin: 0 auto;
 	display: block;
+	text-align: center;
 }

@@ -3,7 +3,7 @@ angular
 	.module('gameApp')
 	.controller('GameController', GameController);
 
-
+// Function set as the controller for the TTT game
 function GameController() {
 
 	// this declares vm as this in all functions within the GameController function
@@ -12,8 +12,9 @@ function GameController() {
 	// this brings the select function out to be used in the DOM
 	this.selectSquare = selectSquare;
 	this.resetGame = resetGame;
+	this.clearStore = clearStore;
 
-// Game variables
+	// Game variables
 	vm.currentMark = 'x';
 	vm.playerOne = 'x';
 	vm.playerTwo = 'o';
@@ -91,6 +92,7 @@ function GameController() {
 		} else if (vm.moves == 9){
 				vm.gameResult = "Cats Game!";
 				vm.catsGame = true;
+				vm.moves = 0
 		} else {
 				vm.moves += 1; 
 		}
@@ -102,15 +104,14 @@ function GameController() {
 			vm.gameResult = "Player One Wins!";
 			vm.leftScore += 1;
 	};
-
- function playerTwoWin() {
+	function playerTwoWin() {
 			vm.gameResult = "Player Two Wins!";
 			vm.rightScore += 1;
 	};
 
-	// reset game on click button reset game
+	// Resets game 
 	function resetGame() {
-		console.log("hello world");
+		// console.log("hello world");
 		vm.currentPlayer = 'x';
 		vm.playerOne = 'x';
 		vm.playerTwo = 'o';
@@ -125,5 +126,12 @@ function GameController() {
 									];
 
 	};
+
+	function clearStore() {
+		vm.leftScore = 0;
+		vm.rightScore = 0;
+	}
+
+
 };
 

@@ -45,9 +45,8 @@
 		<!-- This is the Tic Tac Toe game board -->
 		<div id="game-board">
 			<div x-ng-repeat="row in game.grid">
-				<div class="squares" x-ng-repeat="cell in row" x-ng-click="game.selectSquare($parent.$index, $index)">hello
-				<!-- {{ $parent.$index }}-{{ $index }} -->
-					{{ game.grid[$parent.$index][$index].pick }}
+				<div class="squares" x-ng-repeat="cell in row" x-ng-click="game.selectSquare($parent.$index, $index)">
+				<span id="marker">{{ game.grid[$parent.$index][$index].pick }}</span>
 				</div>	
 			</div>
 		</div>
@@ -57,8 +56,12 @@
 			<!-- This displays the result of the game -->
 			<p id="game-result">{{ game.gameResult }}</p>
 
-			<!-- 	reset game button -->
-			<button id="reset-button" x-ng-click="game.resetGame()">New Game</button>
+			<span>
+			<!-- 	Reset Game Button -->
+			<button x-ng-click="game.resetGame()">New Game</button>
+			<!-- Clear Scoreboard -->
+			<button x-ng-click="game.clearStore()">Clear Score</button>
+			</span>
 
 	</body>
 </html>

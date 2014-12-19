@@ -11,34 +11,34 @@ h1 {
 
 #game-board {
 		text-align: center;
-	/*	width: 700px;
-		height: 700px;*/
+		width: 456px;
+		clear: both;
+		margin: 0 auto 20px auto;
 }
 .squares {
-	width: 200px;
-	height: 200px;
+	width: 150px;
+	height: 150px;
 	background-color: #7689A9;
-	text-align: center;
-	display: inline-block;
-	border: 2px solid #2D4671;
+/*	display: inline-block;*/
+	border: 1px solid #2D4671;
 	border-radius: 10px;	
+	margin: auto;
+	float: left;
 }
 .squares:hover {
 	background-color: #4D658D;
 	cursor: crosshair;
 }
 
-.x {
-	background-color: #FFFFFF;
-}
-.o {
-	background-color: #152C55;
+#marker {
+		text-align: center;
+		vertical-align: middle;
 }
 
 .leftScore {
 	height:	300px;
 	width: 200px;
-	float: left;
+	position: absolute;
 	background-color: #4D658D;
 	border-radius: 10px;
 	margin-left: 20px;
@@ -51,12 +51,13 @@ h1 {
 }
 
 .rightScore {
+	position: absolute;
 	height: 300px;
 	width: 200px;
-	float: right;
 	background-color: #4D658D;
 	border-radius: 10px;
 	margin-right: 20px;
+	right: 0;
 }
 
 .rightScore h3,
@@ -68,17 +69,19 @@ h1 {
 	text-align: center;
 	color: white;
 	font-size: 80px;
+	clear: both;
 }
-#reset-button {
+button {
+	position: relative;
 	width: 100px;
 	height: 50px;
 	background-color: #4D658D;
 	color: white;
-	font-family: 'Montserrat', sans-serif;
 	font-size: 12px;
 	font-weight: bold;
 	border-color: #152C55;
 	border-radius: 10px;
-	margin: 0 auto;
+	margin: 10px auto;
 	display: block;
+	clear: both;
 }

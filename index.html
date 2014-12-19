@@ -27,18 +27,19 @@
 
 	<body ng-controller="GameController as game">
 
-		<h1>Tic-Tac-Toe</h1>
+		<h1>&iquest&iquestTic-CAT-DoGE??</h1>
 
 	<!-- Scoreboards -->
-	<div class="left-score">
-		<h3>DOGE</h3>
-			<p>Score: {{ game.leftScore }}</p>
-	</div>
+		<div class="left-score">
+			<h3>DOGE</h3>
+				<p>Score: {{ game.leftScore }}</p>
+		</div>
 
-	<div class="right-score">
-		<h3>CAT</h3>
-			<p>Score: {{ game.rightScore }}</p>
-	</div>
+		<div class="right-score">
+			<h3>CAT</h3>
+				<p>Score: {{ game.rightScore }}</p>
+		</div>
+
 		
 
 
@@ -54,14 +55,14 @@
 			<br>
 
 			<!-- This displays the result of the game -->
-			<p id="game-result">{{ game.gameResult }}</p>
+			<p id="game-result" ng-show="game.gameOver == true">{{ game.gameResult }}</p>
 
-			<span class="buttons">
+			<div id="button-container">
 				<!-- 	Reset Game Button -->
 				<button x-ng-click="game.resetGame()">New Game</button>
 				<!-- Clear Scoreboard -->
 				<button x-ng-click="game.clearStore()">Clear Score</button>
-			</span>
+			</div>
 
 	</body>
 </html>

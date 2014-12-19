@@ -20,7 +20,7 @@ function GameController() {
 	vm.playerTwo = 'o';
 	vm.moves = 1;
 	vm.catsGame = false;
-	vm.gameover = false;
+	vm.gameOver = false;
 	vm.leftScore = 0;
 	vm.rightScore = 0;
 	vm.gameResult = '';
@@ -95,21 +95,23 @@ function GameController() {
 
 // these two functions add a score when player wins
 	function playerOneWin() {
-			vm.gameResult = "WoW DoGE WinS! >.<";
+			vm.gameOver = true;
+			vm.gameResult = "muCh Win sO DogE! wow >.<";
 			vm.leftScore += 1;
 	};
 	function playerTwoWin() {
-			vm.gameResult = "GRUMPCAT WINS! >:O";
+			vm.gameOver = true;
+			vm.gameResult = "MEOW! GRUMPCAT WINS! >:(";
 			vm.rightScore += 1;
 	};
 
 	// Resets game 
 	function resetGame() {
-		console.log("hello world");
 		vm.currentPlayer = 'x';
 		vm.playerOne = 'x';
 		vm.playerTwo = 'o';
 		vm.catsGame = false;
+		vm.gameOver = false;
 		vm.moves = 1;
 		vm.gameResult = '';
 

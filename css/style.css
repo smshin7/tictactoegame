@@ -1,12 +1,16 @@
 body {
-	background-color: #2D4671;
-	color: #152C55;
+	background-color: #EEEEEE;
+	color: black;
 	font-family: 'Montserrat', sans-serif;;
 }
 
 h1 {
 	text-align: center;
 	font-size: 50px;
+	margin: 0 0 50px 0;
+	height: 80px;
+	background-color: #E0E0E0;
+	vertical-align: middle;
 }
 
 #game-board {
@@ -19,13 +23,13 @@ h1 {
 	width: 150px;
 	height: 150px;
 	display: inline-block;
-	background-color: #7689A9;
-	border: 1px solid #2D4671;
+	background-color: #757575;
 	border-radius: 10px;
+	border: 1px #EEEEEE solid;
 	margin: 0;
 }
 .squares:hover {
-	background-color: #4D658D;
+
 	cursor: crosshair;
 }
 
@@ -42,14 +46,13 @@ h1 {
 	position: absolute;
 	height:	300px;
 	width: 200px;
-	background-color: #4D658D;
+	background-color: #9E9E9E;
 	border-radius: 10px;
-	margin-left: 20px;
+	margin-left: 50px;
 }
 
 .left-score h3, .left-score p {
 	text-align: center;
-	color: #152C55;
 }
 
 .right-score {
@@ -57,31 +60,37 @@ h1 {
 	right: 0;
 	height: 300px;
 	width: 200px;
-	background-color: #4D658D;
+	background-color: #9E9E9E;
 	border-radius: 10px;
-	margin-right: 20px;
+	margin-right: 50px;
 }
 
 .right-score h3, .right-score p {
 	text-align: center;
-	color: #152C55;
 }
 
 #game-result {
+	position: absolute;
+	background-color: rgba(255, 255, 255, 0.4);
+	top: 25px;
+	color: black;
+	height: 300px;
+	width: 100%;
 	text-align: center;
-	color: white;
-	font-size: 20px;
+	padding: 175px 0 0 0;
+	font-size: 100px;
 }
-
+#button-container {
+	text-align: center;
+}
 button {
 	width: 100px;
 	height: 50px;
-	background-color: #4D658D;
+	background-color: #9E9E9E;
 	color: white;
 	font-size: 12px;
 	font-weight: bold;
-	border-color: #152C55;
 	border-radius: 10px;
-	display: block;
+	display: inline-block;
 	text-align: center;
 }

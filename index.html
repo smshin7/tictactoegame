@@ -3,7 +3,6 @@
 
 	<head>
 		<title>Tic-Tac-Toe Game</title>
-
 		<!-- CSS Stylesheet -->
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -13,16 +12,14 @@
 		<!-- AngularJS -->
 		<script src="js/angular.min.js"></script>
 
-		<!-- FireBase -->
-		<script src="https://cdn.firebase.com/js/client/2.0.6/firebase.js"></script>
-
-		<!-- AngularFire -->
-    <script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
-
 		<!-- JavaScript files -->
 		<script src="js/main.js"></script>
 		<script src="js/GameController.js"></script>
 
+		<!-- FireBase -->
+		<script src="https://cdn.firebase.com/js/client/2.0.6/firebase.js"></script>
+		<!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
 	</head>
 
 	<body ng-controller="GameController as game">
@@ -32,21 +29,18 @@
 	<!-- Scoreboards -->
 		<div class="left-score">
 			<h3>DOGE</h3>
-				<p>Score: {{ game.leftScore }}</p>
+				<p>Score: {{ game.fbdata.leftScore }}</p>
 		</div>
 
 		<div class="right-score">
 			<h3>CAT</h3>
-				<p>Score: {{ game.rightScore }}</p>
+				<p>Score: {{ game.fbdata.rightScore }}</p>
 		</div>
-
-		
-
 
 		<!-- This is the Tic Tac Toe game board -->
 		<div id="game-board">
-			<div x-ng-repeat="row in game.grid">
-				<div class="squares" x-ng-class="{'doge-img': game.grid[$parent.$index][$index].pick === 'x', 'cat-img': game.grid[$parent.$index][$index].pick === 'o'}" x-ng-repeat="cell in row" x-ng-click="game.selectSquare($parent.$index, $index)">
+			<div x-ng-repeat="row in game.fbdata.grid">
+				<div class="squares" x-ng-class="{'doge-img': game.fbdata.grid[$parent.$index][$index].pick === 'x', 'cat-img': game.fbdata.grid[$parent.$index][$index].pick === 'o'}" x-ng-repeat="cell in row" x-ng-click="game.selectSquare($parent.$index, $index)">
 				</div>	
 			</div>
 		</div>
@@ -55,13 +49,14 @@
 			<br>
 
 			<!-- This displays the result of the game -->
-			<p id="game-result" ng-show="game.gameOver == true">{{ game.gameResult }}</p>
+			<p id="game-result" ng-show="game.fbdata.gameOver == true">{{ game.fbdata.gameResult }}</p>
 
 			<div id="button-container">
-				<!-- 	Reset Game Button -->
-				<button x-ng-click="game.resetGame()">New Game</button>
+				<button x-ng-click="game.getGame()">Load Game</button>
+				<!-- 	New Game Button -->
+				<button x-ng-click="game.newGame()">New Game</button>
 				<!-- Clear Scoreboard -->
-				<button x-ng-click="game.clearStore()">Clear Score</button>
+				<button x-ng-click="game.clearScore()">Clear Score</button>
 			</div>
 
 	</body>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Tic Tac Toe</title>
+	</head>
+
+	<body x-ng-controller="GameController">
+		<div id="container">
+			<h1>TIC TAC TOE</h1>
+				<div id="player-one">
+					<p>Player One Score:</p>
+				</div>
+
+				<div>
+					<p>Player Two Score:</p>
+				</div>
+
+				<div id="gameboard">
+					<div class="cell" x-ng-repeat="cell in cells track by $index" x-ng-click="selectSquare($index)"> {{ cell }} </div>
+				</div>
+
+		</div>	
+	</body>
+
+</html>	

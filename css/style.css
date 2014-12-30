@@ -1,5 +1,6 @@
 body {
-	background-color: #EEEEEE;
+	background-image: url(../images/galaxy_bg.jpg);
+	background-size: cover;
 	color: black;
 	font-family: 'Montserrat', sans-serif;;
 }
@@ -16,8 +17,8 @@ h1 {
 #game-board {
 	text-align: center;
 	margin: 0 auto;	
-	width: 456px;
-	height: 456px;
+	width: 500px;
+	height: 500px;
 }
 .squares {
 	width: 150px;
@@ -26,7 +27,7 @@ h1 {
 	background-color: #757575;
 	border-radius: 10px;
 	border: 1px #EEEEEE solid;
-	margin: 0;
+	margin: 0px 2px 0px 2px
 }
 .squares:hover {
 
@@ -82,6 +83,9 @@ h1 {
 }
 #button-container {
 	text-align: center;
+	background-color: #E0E0E0;
+	height: 80px;
+		vertical-align: middle;
 }
 button {
 	width: 100px;
@@ -93,4 +97,5 @@ button {
 	border-radius: 10px;
 	display: inline-block;
 	text-align: center;
+	margin-top: 15px;
 }

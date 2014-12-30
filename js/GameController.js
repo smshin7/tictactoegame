@@ -133,9 +133,17 @@ function GameController($firebase) {
 		this.fbdata.$save();
 	}
 
-	// Clears the scoreboard
+	// Clears the scoreboard 
 	function clearScore() {
 		this.fbdata = $firebase(ref).$asObject();
+		this.fbdata.grid = [
+								[{pick: ''},{pick: ''},{pick: ''}],
+								[{pick: ''},{pick: ''},{pick: ''}],
+								[{pick: ''},{pick: ''},{pick: ''}]
+							];
+		this.fbdata.gameOver = false;
+		this.fbdata.gameResult = '';
+		this.fbdata.moves = 0;
 		this.fbdata.leftScore = 0;
 		this.fbdata.rightScore = 0;
 		this.fbdata.$save();

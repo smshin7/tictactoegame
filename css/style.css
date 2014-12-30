@@ -1,7 +1,7 @@
 body {
 	background-image: url(../images/galaxy_bg.jpg);
 	background-size: cover;
-	color: black;
+	color: #4f5b66;
 	font-family: 'Montserrat', sans-serif;;
 }
 
@@ -10,8 +10,9 @@ h1 {
 	font-size: 50px;
 	margin: 0 0 50px 0;
 	height: 80px;
-	background-color: #E0E0E0;
+	background-color: #a7adba;
 	vertical-align: middle;
+	opacity: 0.85;
 }
 
 #game-board {
@@ -24,13 +25,11 @@ h1 {
 	width: 150px;
 	height: 150px;
 	display: inline-block;
-	background-color: #757575;
+	background-color: #a7adba;
 	border-radius: 10px;
-	border: 1px #EEEEEE solid;
 	margin: 0px 2px 0px 2px
 }
 .squares:hover {
-
 	cursor: crosshair;
 }
 
@@ -47,9 +46,10 @@ h1 {
 	position: absolute;
 	height:	300px;
 	width: 200px;
-	background-color: #9E9E9E;
+	background-color: #a7adba;
 	border-radius: 10px;
 	margin-left: 50px;
+	opacity: 0.85;
 }
 
 .left-score h3, .left-score p {
@@ -61,9 +61,10 @@ h1 {
 	right: 0;
 	height: 300px;
 	width: 200px;
-	background-color: #9E9E9E;
+	background-color: #a7adba;
 	border-radius: 10px;
 	margin-right: 50px;
+	opacity: 0.85;
 }
 
 .right-score h3, .right-score p {
@@ -72,9 +73,9 @@ h1 {
 
 #game-result {
 	position: absolute;
-	background-color: rgba(255, 255, 255, 0.4);
+	background-color: rgba(167, 173 ,186 , 0.4);
 	top: 25px;
-	color: black;
+	color: white;
 	height: 300px;
 	width: 100%;
 	text-align: center;
@@ -83,14 +84,14 @@ h1 {
 }
 #button-container {
 	text-align: center;
-	background-color: #E0E0E0;
+	background-color: #a7adba;
 	height: 80px;
-		vertical-align: middle;
+	opacity: 0.85;
 }
 button {
 	width: 100px;
 	height: 50px;
-	background-color: #9E9E9E;
+	background-color: #65737e;
 	color: white;
 	font-size: 12px;
 	font-weight: bold;

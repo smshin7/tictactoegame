@@ -109,8 +109,8 @@ function GameController($firebase) {
 			this.fbdata = $firebase(ref).$asObject();
 			this.fbdata.gameOver = true;
 			this.fbdata.gameResult = "much win so doge... wow";
-			this.fbdata.leftScore += 1;
-			this.fbdata.rightScore += 0;
+			// this.fbdata.leftScore += 1;
+			// this.fbdata.rightScore += 0;
 			this.fbdata.moves = 0;
 			this.fbdata.$save();
 	};
@@ -118,8 +118,8 @@ function GameController($firebase) {
 		this.fbdata = $firebase(ref).$asObject();
 		this.fbdata.gameOver = true;
 		this.fbdata.gameResult = "meow! grump cat wins! >:(";
-		this.fbdata.rightScore += 1;
-		this.fbdata.leftScore += 0;
+		// this.fbdata.rightScore += 1;
+		// this.fbdata.leftScore += 0;
 		this.fbdata.$save();
 	};
 // function that runs when cats game is true

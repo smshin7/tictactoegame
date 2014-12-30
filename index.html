@@ -24,7 +24,7 @@
 
 	<body ng-controller="GameController as game">
 
-		<h1>&iquest&iquestTic-CAT-DoGE??</h1>
+		<h1>&iquest&iquest Tic-CAT-DoGE ??</h1>
 
 	<!-- Scoreboards -->
 		<div class="left-score">
@@ -52,9 +52,8 @@
 			<p id="game-result" ng-show="game.fbdata.gameOver == true">{{ game.fbdata.gameResult }}</p>
 
 			<div id="button-container">
-				<button x-ng-click="game.getGame()">Load Game</button>
-				<!-- 	New Game Button -->
-				<button x-ng-click="game.newGame()">New Game</button>
+				<!-- Starts new game -->
+				<button x-ng-click="game.getGame()">New Game</button>
 				<!-- Clear Scoreboard -->
 				<button x-ng-click="game.clearScore()">Clear Score</button>
 			</div>

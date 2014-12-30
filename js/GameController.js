@@ -17,7 +17,6 @@ function GameController($firebase) {
 
 	// this brings the select function out to be used in the DOM
 	this.selectSquare = selectSquare;
-	this.newGame = newGame;
 	this.clearScore = clearScore;
 	this.getGame = getGame;
 
@@ -36,7 +35,6 @@ function GameController($firebase) {
 				playerTwo: 'o',
 				moves: 1,
 				gameOver: false,
-				catsGame: false,
 				leftScore: 0,
 				rightScore: 0,
 				gameResult: ''
@@ -111,50 +109,36 @@ function GameController($firebase) {
 			this.fbdata = $firebase(ref).$asObject();
 			this.fbdata.gameOver = true;
 			this.fbdata.gameResult = "much win so doge... wow";
-			this.fbdata.leftScore++;
+			this.fbdata.leftScore += 1;
+			this.fbdata.rightScore += 0;
+			this.fbdata.moves = 0;
 			this.fbdata.$save();
 	};
 	function playerTwoWin() {
-			this.fbdata = $firebase(ref).$asObject();
-			this.fbdata.gameOver = true;
-			this.fbdata.gameResult = "meow! grump cat wins! >:(";
-			this.fbdata.rightScore++;
-			this.fbdata.$save();
+		this.fbdata = $firebase(ref).$asObject();
+		this.fbdata.gameOver = true;
+		this.fbdata.gameResult = "meow! grump cat wins! >:(";
+		this.fbdata.rightScore += 1;
+		this.fbdata.leftScore += 0;
+		this.fbdata.$save();
 	};
 // function that runs when cats game is true
 	function catsGame() {
 		this.fbdata = $firebase(ref).$asObject();
 		this.fbdata.gameOver = true;
 		this.fbdata.gameResult = "not a cats game... but a tie!";
-		this.fbdata.catsGame = true;
-		this.fbdata.moves = 0
+		this.fbdata.leftScore += 0;
+		this.fbdata.rightScore += 0;
+		this.fbdata.moves = 0;
+		this.fbdata.$save();
 	}
-
-
-	// Resets game 
-	function newGame() {
-		this.fbdata = $firebase(ref).$asObject();
-		ref.set({
-				grid: [
-								[{pick: ''},{pick: ''},{pick: ''}],
-								[{pick: ''},{pick: ''},{pick: ''}],
-								[{pick: ''},{pick: ''},{pick: ''}]
-							],
-				currentPlayer: 'x',
-				playerOne: 'x',
-				playerTwo: 'o',
-				moves: 1,
-				gameOver: false,
-				catsGame: false,
-				gameResult: ''
-			});
-	};
 
 	// Clears the scoreboard
 	function clearScore() {
 		this.fbdata = $firebase(ref).$asObject();
 		this.fbdata.leftScore = 0;
 		this.fbdata.rightScore = 0;
+		this.fbdata.$save();
 	}
 
 };

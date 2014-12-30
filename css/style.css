@@ -13,6 +13,7 @@ h1 {
 	background-color: #a7adba;
 	vertical-align: middle;
 	opacity: 0.85;
+	padding: 15px 0 5px 0;
 }
 
 #game-board {
@@ -31,6 +32,7 @@ h1 {
 }
 .squares:hover {
 	cursor: crosshair;
+	background-color: #65737e;
 }
 
 .doge-img {
@@ -48,7 +50,7 @@ h1 {
 	width: 200px;
 	background-color: #a7adba;
 	border-radius: 10px;
-	margin-left: 50px;
+	margin-left: 100px;
 	opacity: 0.85;
 }
 
@@ -63,7 +65,7 @@ h1 {
 	width: 200px;
 	background-color: #a7adba;
 	border-radius: 10px;
-	margin-right: 50px;
+	margin-right: 100px;
 	opacity: 0.85;
 }
 

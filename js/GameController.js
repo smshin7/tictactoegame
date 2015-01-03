@@ -11,14 +11,16 @@ function GameController($firebase) {
 	// this declares vm as this in all functions within the GameController function
 	var vm = this;
 	var fbdata;
-	var ref = new Firebase("https://dogettt.firebaseio.com/fbdata");	
+	var ref = new Firebase("https://tictacdoge.firebaseio.com/fbdata");	
 	var sync = $firebase(ref)	
 	var fbdata = sync.$asObject;
 
 	// this brings the select function out to be used in the DOM
+	this.getGame = getGame;
+	this.newGame = newGame;
 	this.selectSquare = selectSquare;
 	this.clearScore = clearScore;
-	this.getGame = getGame;
+
 
 	// this function syncs game data onto firebase and loads the gameboard on click
 	function getGame() {
@@ -106,36 +108,50 @@ function GameController($firebase) {
 
 // these two functions add a score when player wins
 	function playerOneWin() {
-			this.fbdata = $firebase(ref).$asObject();
+			this.fbdata = sync.$asObject();
 			this.fbdata.gameOver = true;
 			this.fbdata.gameResult = "much win so doge... wow";
-			// this.fbdata.leftScore += 1;
-			// this.fbdata.rightScore += 0;
+			this.fbdata.leftScore += 1;
+			this.fbdata.rightScore += 0;
 			this.fbdata.moves = 0;
 			this.fbdata.$save();
 	};
 	function playerTwoWin() {
-		this.fbdata = $firebase(ref).$asObject();
+		this.fbdata = sync.$asObject();
 		this.fbdata.gameOver = true;
 		this.fbdata.gameResult = "meow! grump cat wins! >:(";
-		// this.fbdata.rightScore += 1;
-		// this.fbdata.leftScore += 0;
+		this.fbdata.rightScore += 1;
+		this.fbdata.leftScore += 0;
 		this.fbdata.$save();
 	};
 // function that runs when cats game is true
 	function catsGame() {
-		this.fbdata = $firebase(ref).$asObject();
+		this.fbdata = sync.$asObject();
 		this.fbdata.gameOver = true;
 		this.fbdata.gameResult = "not a cats game... but a tie!";
 		this.fbdata.leftScore += 0;
 		this.fbdata.rightScore += 0;
 		this.fbdata.moves = 0;
 		this.fbdata.$save();
+	};
+
+	// function replays game
+	function newGame() {
+		this.fbdata = sync.$asObject();
+		this.fbdata.grid = [
+								[{pick: ''},{pick: ''},{pick: ''}],
+								[{pick: ''},{pick: ''},{pick: ''}],
+								[{pick: ''},{pick: ''},{pick: ''}]
+							];
+		this.fbdata.gameOver = false;
+		this.fbdata.gameResult = '';
+		this.fbdata.moves = 1;
+		this.fbdata.$save();
 	}
 
 	// Clears the scoreboard 
 	function clearScore() {
-		this.fbdata = $firebase(ref).$asObject();
+		this.fbdata = sync.$asObject();
 		this.fbdata.grid = [
 								[{pick: ''},{pick: ''},{pick: ''}],
 								[{pick: ''},{pick: ''},{pick: ''}],

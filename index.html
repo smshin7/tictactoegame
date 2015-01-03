@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<!-- Google Fonts -->
-		<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
 		<!-- AngularJS -->
 		<script src="js/angular.min.js"></script>
@@ -52,8 +52,10 @@
 			<p id="game-result" ng-show="game.fbdata.gameOver == true">{{ game.fbdata.gameResult }}</p>
 
 			<div id="button-container">
-				<!-- Starts new game -->
-				<button x-ng-click="game.getGame()">New Game</button>
+				<!-- Starts the game -->
+				<button x-ng-click="game.getGame()">Start Game</button>
+				<!-- Play again -->
+				<button x-ng-click="game.newGame()">Play Again</button>
 				<!-- Clear Scoreboard -->
 				<button x-ng-click="game.clearScore()">Clear Score</button>
 			</div>

@@ -81,14 +81,12 @@ h1 {
 	height: 300px;
 	width: 100%;
 	text-align: center;
-	padding: 175px 0 0 0;
+	padding: 200px 0 0 0;
 	font-size: 100px;
 }
 #button-container {
 	text-align: center;
-	background-color: #a7adba;
 	height: 80px;
-	opacity: 0.85;
 }
 button {
 	width: 100px;

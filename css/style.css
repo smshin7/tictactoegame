@@ -35,6 +35,22 @@ h1 {
 	background-color: #65737e;
 }
 
+#doge {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	height: 150px;
+	width: 150px;
+}
+
+#cat {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	height: 150px;
+	width: 150px;
+}
+
 .doge-img {
 	background-image: url(../images/doge.png);
 	background-size: cover;
@@ -68,6 +84,7 @@ h1 {
 	border-radius: 10px;
 	margin-left: 100px;
 	opacity: 0.85;
+	font-size: 25px;
 }
 
 .left-score h3, .left-score p {
@@ -84,6 +101,7 @@ h1 {
 	border-radius: 10px;
 	margin-right: 100px;
 	opacity: 0.85;
+	font-size: 25px;
 }
 
 .right-score h3, .right-score p {
@@ -101,7 +119,7 @@ h1 {
 	position: absolute;
 	background-color: rgba(167, 173 ,186 , 0.4);
 	color: white;
-	height: 400px;
+	height: 425px;
 	width: 100%;
 	text-align: center;
 	font-size: 100px;
@@ -110,7 +128,14 @@ h1 {
 #game-result button {
 	width: 200px;
 	height: 100px;
-	font-size: 25px;
+
+	font-size: 25px
+}
+
+#player-turn {
+	text-align: center;
+	color: white;
+	font-size: 20px;
 }
 
 #button-container {

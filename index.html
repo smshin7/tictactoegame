@@ -37,6 +37,7 @@
 		<div class="right-score" ng-show="game.fbdata.gameOver == false">
 			<br>
 			<img src="images/cat.png" id="grumpcat">
+
 				<p>Score: {{ game.fbdata.rightScore }}</p>
 		</div>
 
@@ -49,6 +50,8 @@
 		</div>
 
 			<br>
+
+				<!-- This shows who's turn it is -->
 				<div id="player-turn" ng-show="game.fbdata.gameOver == false">
 					Current Player: {{ game.fbdata.currentPlayer }}
 				</div>
@@ -56,9 +59,10 @@
 
 			<!-- This displays the result of the game -->
 			<div id="game-result" ng-show="game.fbdata.gameOver == true">
-				<p>{{ game.fbdata.gameResult }}</p>
-				<!-- Play again button -->
-				<button x-ng-click="game.newGame()">Play Again</button>
+
+			<p>{{ game.fbdata.gameResult }}</p>
+			<!-- Play again -->
+			<button x-ng-click="game.newGame()">PLAY AGAIN</button>
 			</div>
 
 

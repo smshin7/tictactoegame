@@ -1,6 +1,7 @@
 body {
-	background-color: #EEEEEE;
-	color: black;
+	background-image: url(../images/galaxy_bg.jpg);
+	background-size: cover;
+	color: #4f5b66;
 	font-family: 'Montserrat', sans-serif;;
 }
 
@@ -9,28 +10,29 @@ h1 {
 	font-size: 50px;
 	margin: 0 0 50px 0;
 	height: 80px;
-	background-color: #E0E0E0;
+	background-color: #a7adba;
 	vertical-align: middle;
+	opacity: 0.85;
+	padding: 15px 0 5px 0;
 }
 
 #game-board {
 	text-align: center;
 	margin: 0 auto;	
-	width: 456px;
-	height: 456px;
+	width: 500px;
+	height: 500px;
 }
 .squares {
 	width: 150px;
 	height: 150px;
 	display: inline-block;
-	background-color: #757575;
+	background-color: #a7adba;
 	border-radius: 10px;
-	border: 1px #EEEEEE solid;
-	margin: 0;
+	margin: 0px 2px 0px 2px
 }
 .squares:hover {
-
 	cursor: crosshair;
+	background-color: #65737e;
 }
 
 .doge-img {
@@ -46,9 +48,10 @@ h1 {
 	position: absolute;
 	height:	300px;
 	width: 200px;
-	background-color: #9E9E9E;
+	background-color: #a7adba;
 	border-radius: 10px;
-	margin-left: 50px;
+	margin-left: 100px;
+	opacity: 0.85;
 }
 
 .left-score h3, .left-score p {
@@ -60,9 +63,10 @@ h1 {
 	right: 0;
 	height: 300px;
 	width: 200px;
-	background-color: #9E9E9E;
+	background-color: #a7adba;
 	border-radius: 10px;
-	margin-right: 50px;
+	margin-right: 100px;
+	opacity: 0.85;
 }
 
 .right-score h3, .right-score p {
@@ -71,26 +75,28 @@ h1 {
 
 #game-result {
 	position: absolute;
-	background-color: rgba(255, 255, 255, 0.4);
+	background-color: rgba(167, 173 ,186 , 0.4);
 	top: 25px;
-	color: black;
+	color: white;
 	height: 300px;
 	width: 100%;
 	text-align: center;
-	padding: 175px 0 0 0;
+	padding: 200px 0 0 0;
 	font-size: 100px;
 }
 #button-container {
 	text-align: center;
+	height: 80px;
 }
 button {
 	width: 100px;
 	height: 50px;
-	background-color: #9E9E9E;
+	background-color: #65737e;
 	color: white;
 	font-size: 12px;
 	font-weight: bold;
 	border-radius: 10px;
 	display: inline-block;
 	text-align: center;
+	margin-top: 15px;
 }

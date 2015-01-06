@@ -32,9 +32,9 @@ function GameController($firebase) {
 								[{pick: ''},{pick: ''},{pick: ''}]
 							],
 		// Game variables
-				currentPlayer: 'x',
-				playerOne: 'x',
-				playerTwo: 'o',
+				currentPlayer: 'DOGE',
+				playerOne: 'DOGE',
+				playerTwo: 'GRUMPCAT',
 				moves: 1,
 				gameOver: false,
 				leftScore: 0,
@@ -46,10 +46,10 @@ function GameController($firebase) {
 // ng-click selects the square then changes turn
 	function selectSquare(row, col) {
 		this.fbdata = sync.$asObject();
-		if (this.fbdata.currentPlayer == 'x' && this.fbdata.grid[row][col].pick == '') {
+		if (this.fbdata.currentPlayer == 'DOGE' && this.fbdata.grid[row][col].pick == '') {
 			this.fbdata.grid[row][col].pick = 'x';
 			this.fbdata.currentPlayer = this.fbdata.playerTwo;
-			} else if (this.fbdata.currentPlayer == 'o' && this.fbdata.grid[row][col].pick == '') {
+			} else if (this.fbdata.currentPlayer == 'GRUMPCAT' && this.fbdata.grid[row][col].pick == '') {
 				this.fbdata.grid[row][col].pick = 'o';
 				this.fbdata.currentPlayer = this.fbdata.playerOne;
 			}

@@ -28,18 +28,20 @@
 		<h1>&iquest&iquest TIC-TAC-DOGE ??</h1>
 
 	<!-- Scoreboards -->
-		<div class="left-score">
-			<h3>DOGE</h3>
+		<div class="left-score" ng-show="game.fbdata.gameOver == false">
+			<br>
+			<img src="images/doge.png" id="doge">
 				<p>Score: {{ game.fbdata.leftScore }}</p>
 		</div>
 
-		<div class="right-score">
-			<h3>CAT</h3>
+		<div class="right-score" ng-show="game.fbdata.gameOver == false">
+			<br>
+			<img src="images/cat.png" id="grumpcat">
 				<p>Score: {{ game.fbdata.rightScore }}</p>
 		</div>
 
 		<!-- This is the Tic Tac Toe game board -->
-		<div id="game-board">
+		<div id="game-board" ng-show="game.fbdata.gameOver == false">
 			<div x-ng-repeat="row in game.fbdata.grid">
 				<div class="squares" x-ng-class="{'doge-img': game.fbdata.grid[$parent.$index][$index].pick === 'x', 'cat-img': game.fbdata.grid[$parent.$index][$index].pick === 'o'}" x-ng-repeat="cell in row" x-ng-click="game.selectSquare($parent.$index, $index)">
 				</div>	
@@ -47,16 +49,22 @@
 		</div>
 
 			<br>
+				<div id="player-turn" ng-show="game.fbdata.gameOver == false">
+					Current Player: {{ game.fbdata.currentPlayer }}
+				</div>
 			<br>
 
 			<!-- This displays the result of the game -->
-			<p id="game-result" ng-show="game.fbdata.gameOver == true">{{ game.fbdata.gameResult }}</p>
+			<div id="game-result" ng-show="game.fbdata.gameOver == true">
+				<p>{{ game.fbdata.gameResult }}</p>
+				<!-- Play again button -->
+				<button x-ng-click="game.newGame()">Play Again</button>
+			</div>
 
-			<div id="button-container">
+
+			<div id="button-container" ng-hide="game.fbdata.gameOver == true">
 				<!-- Starts the game -->
 				<button x-ng-click="game.getGame()">Start Game</button>
-				<!-- Play again -->
-				<button x-ng-click="game.newGame()">Play Again</button>
 				<!-- Clear Scoreboard -->
 				<button x-ng-click="game.clearScore()">Clear Score</button>
 			</div>
